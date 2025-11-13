@@ -25,3 +25,10 @@ To use the dictionary during compression:
 `zstdmt -z --ultra -22 -D zstd_dict $FILENAME`
 
 This actually reduced the space savings a bit.
+
+### Import data to Parquet, export with ZSTD compression
+
+The data format is at the bottom of [this](https://www.dsn.kastel.kit.edu/bitcoin/data.html) page.
+We could import some time range of data (1 month?) into a tool like DuckDB, and then
+export the table as compressed Parquet. This could provide better compression than
+just running ZSTD over a file that's a concatenation of the raw JSON data from each day.
