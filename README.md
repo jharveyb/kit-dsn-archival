@@ -3,13 +3,15 @@
 Attempt to compress the KIT DSN data archives, such that another party could
 mirror or host that 10-year Bitcoin P2P dataset.
 
+Their original methodology is described in [this paper](https://publikationen.bibliothek.kit.edu/1000091933)
+
 ## Approaches
 
 ### Per-file ZSTD compression
 
 `zstdmt -z --ultra -22 $FILENAME`
 
-This gives a massive space savings of 94% across both a 2015 and 2025 sample (18x compression ratio).
+This gives a massive space savings of 94% for both a 2015 and 2025 sample (18x compression ratio).
 
 ### ZSTD compression with a dictionary
 
@@ -30,5 +32,5 @@ This actually reduced the space savings a bit.
 
 The data format is at the bottom of [this](https://www.dsn.kastel.kit.edu/bitcoin/data.html) page.
 We could import some time range of data (1 month?) into a tool like DuckDB, and then
-export the table as compressed Parquet. This could provide better compression than
+export the table as compressed Parquet. This could provide more space savings than
 just running ZSTD over a file that's a concatenation of the raw JSON data from each day.
