@@ -7,4 +7,5 @@ zstd_dict
 /target
 
 # Mirrored dataset
-/data/
+/data/raw/
+/data/compressed/

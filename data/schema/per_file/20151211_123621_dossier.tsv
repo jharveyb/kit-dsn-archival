@@ -1,0 +1,16 @@
+20151211	geo.lat	number
+20151211	geo.long	number
+20151211	ip.version	number
+20151211	lastConnect	string
+20151211	latency.btc.count	number
+20151211	latency.btc.mean	number
+20151211	latency.btc.median	number
+20151211	latency.btc.variance	number
+20151211	latency.icmp.count	number
+20151211	latency.icmp.mean	number
+20151211	latency.icmp.median	number
+20151211	latency.icmp.variance	number
+20151211	whois.asn_country_code	string
+20151211	whois.asn	string
+20151211	whois.name	null
+20151211	whois.name	string
