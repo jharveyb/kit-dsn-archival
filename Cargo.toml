@@ -1,0 +1,16 @@
+[package]
+name = "kit-dsn-archival"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.4", features = ["derive"] }
+futures = "0.3.33"
+hex = "0.4.3"
+indicatif = "0.18.6"
+reqwest = { version = "0.13.4", default-features = false, features = ["rustls", "gzip", "stream", "http2"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+sha2 = "0.11.0"
+tokio = { version = "1.53.1", features = ["macros", "rt-multi-thread", "fs", "time", "process"] }

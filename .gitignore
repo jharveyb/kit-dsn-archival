@@ -1,3 +1,10 @@
 *.code-workspace
 zstd_dict_entries/**
 zstd_dict
+
+# Added by cargo
+
+/target
+
+# Mirrored dataset
+/data/
