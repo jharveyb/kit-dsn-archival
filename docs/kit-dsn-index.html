@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en"> 
+<head>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script src="js/jquery.js"></script>
+	<script src="conf/websiteMainConfig.js"></script> 	<!-- Main configuration. Contains information on which plots to display, titles, descriptions... -->
+	
+	
+	<title>Bitcoin Network Monitor - DSN Research Group, KASTEL @ KIT</title>
+
+	<meta name="description" content="Bitcoin Network Monitoring and Research at KIT, DSN Resarch Group" />
+	<meta name="keywords" content="bitcoin, btc, monitoring, blockchain, crypto, cryptocurrency, network, research" />
+
+
+
+</head>
+<body>
+
+	<div class="container">
+
+
+		<div id="headerImage">
+			<center>
+				<div style="display: inline-block; padding: 1em">
+					<a href="http://dsn.kastel.kit.edu/" style="border: 1px">
+						<img src="images/dsn-logo-big.png" style="headerLogo">
+					</a>
+					<h2 style="margin: -10px;">Bitcoin Monitoring</h2>
+				</div>
+			</center>
+		</div>
+
+		<div class="topNavbar row justify-content-around buffer-bottom">
+			<div class="col-lg-2 navcol">
+				<a href="index.html">Plots</a>
+			</div>
+			<div class="col-lg-2 navcol">
+				<a href="data.html">Raw Data</a>
+			</div>
+			<div class="col-lg-2 navcol">
+				<a href="videos.html">Videos</a>
+			</div>
+			<div class="col-lg-2 navcol">
+				<a href="forks">Forks</a>
+			</div>
+			<div class="col-lg-2 navcol">
+				<a href="research.html">Research</a>
+			</div>
+		</div>
+
+		The following charts on the Bitcoin Peer-to-Peer Network are based on measurements conducted for <a href="research.html">research purposes</a>. Our methodology is described in <a href="https://publikationen.bibliothek.kit.edu/1000091933">a technical report</a>. Our monitor nodes are located in Germany, results may differ for other locations. This site shows plots about:
+
+		<ul class="top-buffer">
+			<li><a href="#nodes">Nodes</a></li>
+			<li><a href="#useragents">User Agents</a></li>
+			<li><a href="#whois">Whois</a></li>
+			<li><a href="#addresses">Observed Addresses</a></li>
+			<li><a href="#propagation">Propagation of Transactions and Blocks</a></li>
+			<li><a href="#latency">Latency</a></li>
+			<li><a href="#activity">Activity</a></li>
+		</ul>
+		If you have comments, questions, or suggestions please <a href="#contact">contact us</a>.
+
+		<hr class="hrBuffer">
+
+		<h2 id="nodes">Nodes</h3>
+		<span id="nodesContainer"></span>
+		
+		<h2 id="useragents">User Agents</h3>
+		<span id="useragentContainer"></span>
+		
+		<h2 id="whois">Whois</h3>
+		<span id="whoisContainer"></span>
+
+		<h2 id="addresses">Observed Addresses</h3>
+		<span id="addressContainer"></span>	
+
+		<h2 id="propagation">Propagation of Transactions and Blocks</h2>
+		<span id="propagationContainer"></span>
+		
+		<h2 id="latency"> Latency</h2>
+		<span id="latencyContainer"></span>
+		
+		<h2 id="activity"> Activity on the Bitcoin Network</h2>
+		<span id="activityContainer"></span>
+
+		<!-- Non-Interactive Heatmap -->
+		<span id="heatmapSpan">
+			<h3 id="titleId">Host Heatmap</h3>
+			<img class="chartPrev chartPrevNoninteractive" id="mainPlotImage" src="plots/heatmap.png">
+			<p id="descriptionParagraph">
+				
+			</p>
+			<hr class="hrBuffer">
+		</span>
+
+		
+
+
+	<hr class="hrBuffer">
+
+
+	<h2 style="margin-bottom: 1.5em;">Other Bitcoin Monitoring Sites</h2>
+
+	<h3 style="margin-bottom: 0.5em; margin-top: 0.5em;">P2P Network</h3>
+	<a href="https://21.ninja/">21 Ninja</a><br>
+	<a href="https://bitnodes.io/">Bitnodes</a><br>
+	<a href="https://luke.dashjr.org/programs/bitcoin/files/charts/historical.html">Luke Dashjr's Site</a><br>
+	<a href="https://census.yonson.dev/">Bitcoin Node Census</a><br>
+	<!-- <a href="http://bitcoinstats.com/network/propagation">Bitcoin Stats</a><br /> -->
+	<!--<a href="http://nodes.bitcoin-russia.ru">Bitcoin Russia</a><br />-->
+	<!--<a href="https://nodes.multiven.io/">Multiven</a>-->
+
+	<h3 style="margin-bottom: 0.5em; margin-top: 0.5em;">Other (Mining, etc.)</h3>
+	<a href="http://bitcoin.sipa.be">Network Hashing Rate</a><br>
+	<a href="https://mempool.observer/">Mempool Observer</a><br>
+	<a href="https://blockchain.info/charts">blockchain.info</a><br>
+	and many, many more...
+
+	<hr class="hrBuffer">
+	
+	<h2>License</h2>
+	<p>
+		<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+		<a href="research.html#citation">Here</a> you can find an <a href="research.html#citation">example</a> how to cite this work.
+	</p>
+	<hr class="hrBuffer">
+	<h2>Misc</h2>
+	<p>
+		We would like to thank Martin Florian from the <a href="https://weizenbaum-institut.de/forschung/fg17/">Weizenbaum Institute for the Networked Society</a> for hosting one of our monitor nodes.<br />
+		This work was supported by the <a href="https://www.bmbf.de/">German Federal Ministry of Education and Research (BMBF)</a> within the project KASTEL IoE in the <a href="http://www.kastel.kit.edu/">Competence Center for Applied Security Technology (KASTEL)</a>, by bwFileStorage, and by <a href="https://www.scc.kit.edu/en/services/11228.php">LSDF Online Storage</a>. It was performed by the <a href="http://dsn.kastel.kit.edu">Decentralized Systems and Network Services Research Group</a> at KIT.
+
+	</p>
+
+
+	<div style="display: inline-block; margin-right: 1.5em;">
+			<a href="http://www.kastel.kit.edu/"><img src="images/Logo_KASTEL.png"></a>
+	</div>
+
+	<div style="display: inline-block; margin-bottom: 1.0em;">
+		<a href="http://www.kit.edu/"><img src="images/kit-logo.png" style="max-height: 120px"></a>
+	</div>
+	
+
+	<p id="contact">
+		<h4>
+			<a href="mailto:matthias.grundmann@kit.edu">Contact</a>
+		</h4>
+	</p>
+
+
+	<!-- Templates for different types of plots -->
+
+
+	<!-- Main Template for Timeframe-Selection, Plot-Image, Description, Title,... -->
+	<span id="plotMainTemplate" style="display: none">
+		<h3 id="titleId">Connection Count</h3>
+		<img class="chartPrev" id="mainPlotImage">
+		<div id="thumb_img" class="plotRangeHook">
+			<b>Change plot range:</b>
+			<a id="switchDay">[day]</a>
+			<a id="switchWeek">[week]</a>
+			<a id="switchMonth">[month]</a>
+			<a id="switchQuarter">[quarter]</a>
+			<a id="switchYear">[year]</a>
+			<a id="switchAll">[all]</a>
+		</div>
+		<div id="thumb_img" class="rawDataHook">
+			<b>Raw Data Download:</b>
+			<a id="rawDataLink">[raw data file]</a>
+		</div>
+		<p id="descriptionParagraph"></p>
+		<hr class="hrBuffer">
+	</span>
+
+
+	<!-- Template for interactive modal (Version for different monitors!) -->
+	<span id="modalTwoMonitorTemplate" style="display: none">
+		<div id="modal" class="modal">
+			<div id="modalContent" class="modal-content" width="900" height="500">
+
+				<div class="switch-toggle switch-candy switch-candy-blue" style="margin-left: 0%; margin-right: 75%;">
+
+					<input id="mon0" name="view3" type="radio" checked>
+					<label id="label0">Monitor 1</label>
+
+					<input id="mon1" name="view3" type="radio">
+					<label id="label1">Monitor 2</label>
+
+					<a></a>
+				</div>
+
+				<div id="canvasContainer0">
+
+					<div id="spinner" style="width: 100%; height: 100%">
+						<img style="margin-left: 40%; margin-top: 10%" src="images/spinner.gif">
+					</div>
+
+					<canvas id="chartObject"></canvas>
+				</div>
+
+				<div id="canvasContainer1" style="display: none">
+					<canvas id="chartObject"></canvas>
+				</div>
+
+			</div>
+		</div>
+	</span>
+
+
+	<!-- Template for interactive modal (One Monitor only) -->
+	<span id="modalOneMonitorTemplate" style="display: none">
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<div id="spinner" style="width: 800px; height: 450px">
+					<img style="margin-left: 40%; margin-top: 10%" src="images/spinner.gif">
+				</div>
+				<canvas id="chartObject" class="singleCanvas"></canvas>
+			</div>
+		</div>
+	</span>
+
+
+</div>
+
+<script> // Read plots from main config and add them to the webpage
+
+	for (var spanId in mainConfig){ // For each category of plots...
+		var plotsInSpan = mainConfig[spanId];
+
+		for (var i = 0; i < plotsInSpan.length; i++){ // For each plot in this category... (no [for..in] because we need to retain the order of plots)
+			var currentPlot = plotsInSpan[i];
+			var template = $('#plotMainTemplate').clone(); // Clone the template
+			
+			template.find('#titleId').html(currentPlot.title); // Set Title
+
+			var mainPlotImage = template.find('#mainPlotImage'); // Set Main Image
+
+			if(currentPlot.hasOwnProperty('defaultImage')) {
+				var defaultImage = currentPlot.imageFiles[currentPlot.defaultImage]; // Custom default image
+			} else {
+				var defaultImage = 		   currentPlot.imageFiles.week 
+										|| currentPlot.imageFiles.all
+										|| currentPlot.imageFiles.day
+										|| currentPlot.imageFiles.month
+										|| currentPlot.imageFiles.year; // Take the first image that is available in this order
+			}
+
+			mainPlotImage.attr("src", defaultImage);
+			mainPlotImage.attr('id',  currentPlot.id);
+									
+			mainPlotImage.addClass('chartPrevNoninteractive');
+
+
+			// Setup for links below image
+			var ranges = ['Day', 'Week', 'Month', 'Quarter', 'Year', 'All'];
+			var numberAvailableRanges = 0;
+			ranges.forEach( function(s) {
+				var internalRangeName = s.toLowerCase();
+				var switchObj = template.find('#switch' + s);
+
+				if(currentPlot.imageFiles.hasOwnProperty(internalRangeName)) {
+					numberAvailableRanges += 1;
+					switchObj.attr("onClick", 'changeImage("' + currentPlot.id + '", "' + currentPlot.imageFiles[internalRangeName] + '", this);');
+
+	     				if(currentPlot.imageFiles[internalRangeName] == defaultImage) { // Active selection is bold
+	     					switchObj.attr("style", "font-weight: bolder;");
+	     				}
+
+	     			} else {
+	     				switchObj.remove();
+	     			}
+
+	     		} 
+			);
+
+			if(numberAvailableRanges <= 1) { // If there is only one range, remove the selection-row
+				template.find('.plotRangeHook').remove();
+				console.log(1);
+			}
+			 
+			// Setup for "raw data download"-link below plots
+			var rawDataLink = currentPlot.rawDataLinks || null; 	// undefined -> null if not set
+			var rawDataElement = template.find("#rawDataLink");
+			if( rawDataLink === null || rawDataLink.length == 0 ) {
+				template.find(".rawDataHook").remove();	// Remove link if there is no data
+			} else {
+				// <a id="rawDataLink">[raw data file]</a>
+				for(let i = rawDataLink.length - 1; i >= 0; i--) {
+					const url = rawDataLink[i];
+					const descriptor = " [raw data (" + i + ")]"
+					if(i == 0) {
+						// Use existing element
+						rawDataElement.attr('href', url);
+						rawDataElement.text(descriptor);
+						break;
+					} else {
+						// Create new element
+						let newLink = rawDataElement.clone();
+						newLink.attr('id', "rawDataLink" + i);
+						newLink.attr('href', url);
+						newLink.text(descriptor);
+						newLink.insertAfter(rawDataElement);
+					}
+					
+				}
+				 // Set link-target accordingly
+			}
+			
+
+			// Set Description
+			template.find('#descriptionParagraph').html('<b>Description:</b>  ' + currentPlot.description);
+
+
+
+			// Append to Plots
+			$('#' + spanId).append( template.html() );
+
+		}
+
+
+	}
+
+
+	$('#modalTwoMonitorTemplate').remove(); // free() templates from DOM ;)
+	$('#modalOneMonitorTemplate').remove();
+	$('#plotMainTemplate').remove();
+
+
+
+</script>
+
+<script src="js/helpers.js"></script> 				<!-- Helper functions -->
+
+
+</body>
+</html>

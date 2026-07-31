@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="de"> 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+		
+	<title>Bitcoin Network Monitor - DSN Research Group, KASTEL @ KIT</title>
+	
+	<meta name="description" content="Bitcoin Network Monitoring and Research at KIT, DSN Resarch Group" />
+	<meta name="keywords" content="bitcoin, btc, monitoring, blockchain, crypto, cryptocurrency, network, research" />
+
+	
+</head>
+<body>
+
+	<div class="container">
+
+
+		<div id="headerImage">
+			<center>
+				<div style="display: inline-block; padding: 1em">
+					<a href="http://dsn.tm.kit.edu/" style="border: 1px">
+						<img src="images/dsn-logo-big.png" style="headerLogo">
+					</a>
+					<h2 style="margin: -10px;">Bitcoin Monitoring</h2>
+				</div>
+			</center>
+		</div>
+
+		<div class="topNavbar row justify-content-around buffer-bottom">
+			<div class="col-lg-2 navcol">
+				<a href="index.html">Plots</a>
+			</div>
+			<div class="col-lg-2 navcol">
+				<a href="data.html">Raw Data</a>
+			</div>
+			<div class="col-lg-2 navcol">
+				<a href="videos.html">Videos</a>
+			</div>
+			<div class="col-lg-2 navcol">
+				<a href="forks">Forks</a>
+			</div>
+			<div class="col-lg-2 navcol">
+				<a href="research.html">Research</a>
+			</div>
+		</div>
+
+		<p>
+			We provide snapshots of the Bitcoin network containing information on connected nodes for each day since the beginning of our measurements in July 2015. The datasets are partly anonymized and do not include the IP addresses of peers.  
+		</p>
+
+		<span id="dataDownloadContainer">
+			<h3 id="titleId">Data-Format</h3>
+			<p id="dataDownloadStats">
+<pre class="buffer-bottom">
+"07e70957688b72aa": {
+	"services": 12,
+	"versionid": 70015,
+	"versionstr": "/Satoshi:0.15.1/",
+	"whois": {
+		"asn_country_code": "GB",
+		"asn": "6871",
+		"name": "PLUSNET-DIAL-ADSL"
+	},
+	"inv": {
+		"invperhour": 9662,
+		"txperhour": 9651,
+		"blockperhour": 7,
+		"meandelay": 14590,
+		"meandelayblock": 317
+	},
+	"geo": {
+		"lat": 51.5333,
+		"long": -0.0833
+	},
+	"ip": {
+		"version": 6,
+		"tunnel": "teredo",
+		"tunnelclient": "a3bcc4a6ecf811b8",
+		"tunnelserver": "084fdaf215473bcf"
+	},
+	"latency": {
+		"icmp": {
+			"count": 29,
+			"mean": 49,
+			"median": 26,
+			"variance": 4118
+		},
+		"btc": {
+			"count": 30,
+			"mean": 26,
+			"median": 26,
+			"variance": 0
+		}
+	},
+	"lastConnect": "2018-02-03T03:59:08"
+}
+</pre>
+			</p>
+
+			<hr class="hrBuffer">
+
+			<h2>Download</h2>
+			<p>
+				<li><b><a href="/bitcoin/snapshots">Download Single Files</a></b></li>
+				<li>To download all files (using 4 parallel threads):
+				<pre class="cliCommand">curl -s 'https://www.dsn.kastel.kit.edu/bitcoin/snapshots/?curl' | xargs -P 4 wget</pre>
+				</li>
+			</p>
+
+			<hr class="hrBuffer">
+
+			<p id="descriptionParagraph">
+				<h3>Documentation</h3>
+				This file contains the following key-value-pairs:
+				<ul>
+					<li><b>services</b> - Decimal value of the services-bitfield contained in a version-packet. <a href="https://bitcoin.org/en/developer-reference#version">More Information</a></li>
+					<li><b>versionid</b> - Highest supported protocol-version as advertised by the peer. <a href="https://bitcoin.org/en/developer-reference#version">More Information</a></li>
+					<li><b>versionstr</b> - Useragent as advertised by the peer. <a href="https://bitcoin.org/en/developer-reference#version">More Information</a></li>
+					<li><b>whois</b> - Whois-Information gathered for the peers external ip-address.</li>
+					<ul>
+						<li><b>asn_country_code</b> - Country code of the AS in authority for the address.</li>
+						<li><b>asn</b> - AS Number. <a href="https://www.iana.org/assignments/as-numbers/as-numbers.xhtml">More Information</a> </li>
+						<li><b>name</b> - AS Name.</li>
+					</ul>
+					<li><b>inv</b> - Information regarding the inventory-messages sent by the peer. <a href="https://bitcoin.org/en/developer-reference#inv">More Information</a></li>
+					<ul>
+						<li><b>invperhour</b> - Total number of inventory-messages relayed per hour.</li>
+						<li><b>txperhour</b> - Inventory-messages of transactions relayed per hour. Transactions that were relayed by fewer than 50 % of the peers are ignored.</li>
+						<li><b>blockperhour</b> - Inventory-messages of blocks relayed per hour. Blocks that were relayed by fewer than 50 % of the peers are ignored.</li>
+						<li><b>meandelay</b> - Mean delay observed between first receiving a given inventory-message of a transaction in general and it being relayed by the given peer in particular. Transactions that were relayed by fewer than 50 % of the peers are ignored.</li>
+						<li><b>meandelayblock</b> - Mean delay observed between first receiving a given inventory-message of a block in general and it being relayed by the given peer in particular. Blocks that were relayed by fewer than 50 % of the peers are ignored.</li>
+					</ul>
+					<li><b>geo</b> - Geo-Information gathered for a peers external ip-address. <a href="https://dev.maxmind.com/geoip/legacy/geolite/">Source of Geo-Information</a></li>
+					<ul>
+						<li><b>lat</b> - Latitude as reported by geolite.</li>
+						<li><b>lon</b> - Longitude as reported by geolite.</li>
+					</ul>
+					<li><b>ip</b> - More technical information regarding the peers external ip-address</li>
+					<ul>
+						<li><b>version</b> - Either "6" or "4", depending on the version of ip-protocol used by the peer.</li>
+						<li><b>tunnel</b> <i>Only for IPv6-Hosts</i> - One of "native", "tunnel" or "6to4" - Depending if IPv4 to IPv6 tunneling was used.</li>
+						<li><b>tunnelserver</b> <i>Only if teredo is used</i> - Hash of IPv4 Teredo-Server-Address.</li>
+						<li><b>tunnelclient</b> <i>Only if teredo or 6to4 is used</i> - Hash of peers IPv4 address.</li>
+					</ul>
+					<li><b>latency</b> - Latency between our nodes and the peer as determined using different techniques.</li>
+					<ul>
+						<li><b>icmp</b> - Latency as determined using the icmp-protocol.</li>
+						<ul>
+								<li><b>count</b> - Number of data points.</li>
+								<li><b>mean</b> - Average delay.</li>
+								<li><b>median</b> - Median delay.</li>
+								<li><b>variance</b> - Variance of delay.</li>
+						</ul>
+						<li><b>btc</b> - Latency as determined by bitcoin-protocol.</li>
+						<ul>
+								<li><b>count</b> - Number of data points.</li>
+								<li><b>mean</b> - Average delay.</li>
+								<li><b>median</b> - Median delay.</li>
+								<li><b>variance</b> - Variance of delay.</li>
+						</ul>
+					</ul>
+					<li><b>lastConnect</b> - ISO8601 compatible timestamp of beginning of last connection to peer.</li>
+				</ul>
+
+			</p>
+
+		</span>
+
+		<hr class="hrBuffer">
+
+		<h2 id="citation">Citation</h2>
+
+	<p>If you use our dataset in academic work, you can cite the data as follows:</p>
+<pre>
+@dataset{neudecker_<script>document.write(new Date().getFullYear())</script>_14627526,
+  author       = {Neudecker, Till and
+                  Grundmann, Matthias and
+                  Hartenstein, Hannes},
+  title        = {Bitcoin Peer-To-Peer Network Monitoring},
+  year         = <script>document.write(new Date().getFullYear())</script>,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.14627525},
+  url          = {https://doi.org/10.5281/zenodo.14627525},
+}
+</pre>
+
+		<hr class="hrBuffer">
+
+
+		
+		<h2>License</h2>
+		<p>
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+		</p>
+
+		<hr class="hrBuffer">
+
+		<div class="footer">
+			<div class="row">
+				<div class="col-12">
+					This work was supported by the <a href="https://www.bmbf.de/">German Federal Ministry of Education and Research (BMBF)</a> within the project KASTEL IoE in the <a href="http://www.kastel.kit.edu/">Competence Center for Applied Security Technology (KASTEL)</a>, by bwFileStorage, and by <a href="https://www.scc.kit.edu/en/services/11228.php">LSDF Online Storage</a>. It was performed by the <a href="http://dsn.tm.kit.edu">Decentralized Systems and Network Services Research Group</a> at KIT.
+				</div>
+			</div>
+		</span>
+
+
+</body>
+</html>
